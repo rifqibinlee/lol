@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>NetAlytics - Unified Platform</title>
+  <title>3W - What | Where | When</title>
 
   <link rel="icon" href="data:,">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -393,23 +393,23 @@
         };
     </script>
 
-    <nav class="text-white p-4 shadow-lg sticky top-0 z-50 h-[72px]" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <nav class="p-4 shadow-lg sticky top-0 z-50 h-[72px] bg-white border-b border-gray-200">
     <div class="container mx-auto flex justify-between items-center">
         <div>
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="h-8 w-auto">
+            <img src="{{ url_for('static', filename='file.svg') }}" alt="Logo" class="h-8 w-auto">
         </div>
 
         <div class="flex gap-2 absolute left-1/2 transform -translate-x-1/2 items-center">
-          <button id="tabBtnDashboard" onclick="switchMainTab('dashboard')" class="text-white opacity-70 hover:opacity-100 font-semibold border-b-2 border-transparent hover:border-white pb-1 transition-all whitespace-nowrap text-sm px-3">
+          <button id="tabBtnDashboard" onclick="switchMainTab('dashboard')" class="text-gray-500 hover:text-gray-900 font-semibold border-b-2 border-transparent hover:border-blue-600 pb-1 transition-all whitespace-nowrap text-sm px-3">
           <span class="hidden sm:inline">RAN </span>Forecast
       </button>
       
-      <button id="tabBtnMap" onclick="switchMainTab('map')" class="text-white font-semibold border-b-2 border-white pb-1 transition-all whitespace-nowrap text-sm px-3">
+      <button id="tabBtnMap" onclick="switchMainTab('map')" class="text-gray-900 font-semibold border-b-2 border-blue-600 pb-1 transition-all whitespace-nowrap text-sm px-3">
           <span class="hidden sm:inline">Coverage </span>Map
       </button>
       
       <div class="relative" id="toolsDropdownWrapper">
-          <button id="tabBtnTools" onclick="toggleToolsDropdown()" class="text-white opacity-70 hover:opacity-100 font-semibold border-b-2 border-transparent hover:border-white pb-1 transition-all whitespace-nowrap text-sm px-3">
+          <button id="tabBtnTools" onclick="toggleToolsDropdown()" class="text-gray-500 hover:text-gray-900 font-semibold border-b-2 border-transparent hover:border-blue-600 pb-1 transition-all whitespace-nowrap text-sm px-3">
               <span class="hidden md:inline">Enterprise </span>
           </button>
               <div id="toolsDropdown" class="hidden absolute left-1/2 -translate-x-1/2 mt-3 w-64 bg-white rounded-xl shadow-2xl overflow-hidden text-gray-700 border border-gray-100 z-[9999]">
@@ -427,22 +427,22 @@
 
         <div class="flex items-center gap-3">
             {% if role == 'Admin' %}
-            <a href="/iam" class="bg-white/20 hover:bg-white/30 text-white p-2.5 rounded-lg transition-all duration-300 shadow-lg hover:scale-110" title="User Management (IAM)">
+            <a href="/iam" class="bg-gray-100 hover:bg-gray-200 text-gray-600 p-2.5 rounded-lg transition-all duration-300 shadow-sm hover:scale-110" title="User Management (IAM)">
                 <i class="fas fa-shield-alt text-lg"></i>
             </a>
             {% endif %}
 
-            <button onclick="openMessagingModal()" class="relative bg-white/20 hover:bg-white/30 text-white p-2.5 rounded-lg transition-all duration-300 shadow-lg hover:scale-110" title="Messages">
+            <button onclick="openMessagingModal()" class="relative bg-gray-100 hover:bg-gray-200 text-gray-600 p-2.5 rounded-lg transition-all duration-300 shadow-sm hover:scale-110" title="Messages">
                 <i class="fas fa-envelope text-lg"></i>
                 <span id="navUnreadBadge" class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1 font-bold">0</span>
             </button>
 
-            <button onclick="openReviewModal()" class="bg-white/20 hover:bg-white/30 text-white p-2.5 rounded-lg transition-all duration-300 shadow-lg hover:scale-110" title="Submit a Review">
+            <button onclick="openReviewModal()" class="bg-gray-100 hover:bg-gray-200 text-gray-600 p-2.5 rounded-lg transition-all duration-300 shadow-sm hover:scale-110" title="Submit a Review">
                 <i class="fas fa-star text-lg"></i>
             </button>
 
             <div class="relative ml-2">
-                <button id="menuBtn" class="bg-white text-blue-600 px-4 py-2 rounded-lg font-bold hover:bg-gray-100 transition flex items-center gap-2 shadow-lg">
+                <button id="menuBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700 transition flex items-center gap-2 shadow-sm">
                     <i class="fas fa-user-circle"></i> {{ username }} <i class="fas fa-chevron-down text-xs ml-1"></i>
                 </button>
                 <div id="menuDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl overflow-hidden text-gray-700 border border-gray-100 z-[9999]">
@@ -647,7 +647,7 @@
         <div class="flex items-center gap-3">
             <i class="fas fa-robot text-2xl"></i>
             <div>
-                <h3 class="font-bold text-sm tracking-wide">NetAlytics AI Agent</h3>
+                <h3 class="font-bold text-sm tracking-wide">3W AI Agent</h3>
                 <p class="text-[10px] text-blue-100 uppercase tracking-wider">Powered by Claude 4 Sonnet</p>
             </div>
         </div>
@@ -656,7 +656,7 @@
     
     <div id="agentChatMessages" class="flex-1 p-4 overflow-y-auto bg-gray-50 flex flex-col gap-3 text-sm scroll-smooth">
         <div class="self-start bg-white border border-gray-200 text-gray-800 p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl shadow-sm max-w-[85%]">
-            Hello! I am your local NetAlytics Agent. Ask me about site congestion, capacities, or upgrade pricing!
+            Hello! I am your local 3W AI Agent. Ask me about site congestion, capacities, or upgrade pricing!
         </div>
     </div>
     <div class="p-3 bg-white border-t border-gray-200">
@@ -871,8 +871,8 @@
                 </a>
 
         <div>
-            <h1 class="text-xl font-bold flex items-center gap-3 text-gray-800 mb-1"><i class="fas fa-satellite text-blue-600"></i> NetAlytics</h1>
-            <p class="text-xs text-gray-500">Advanced Site Topology & AI Forecast</p>
+            <h1 class="text-xl font-bold flex items-center gap-3 text-gray-800 mb-1"><i class="fas fa-satellite text-blue-600"></i> 3W</h1>
+            <p class="text-xs text-gray-500">What | Where | When</p>
         </div>
 
         <div class="control-group relative">
@@ -1891,8 +1891,8 @@
             const bitcoinContainer = document.getElementById('bitcoinContainer');
             const pegmanControl = document.getElementById('pegmanControl');
 
-            const inactiveClass = 'text-white opacity-70 hover:opacity-100 font-semibold border-b-2 border-transparent hover:border-white pb-1 transition-all whitespace-nowrap text-sm px-3';
-            const activeClass = 'text-white font-semibold border-b-2 border-white pb-1 transition-all whitespace-nowrap text-sm px-3';
+            const inactiveClass = 'text-gray-500 hover:text-gray-900 font-semibold border-b-2 border-transparent hover:border-blue-600 pb-1 transition-all whitespace-nowrap text-sm px-3';
+            const activeClass = 'text-gray-900 font-semibold border-b-2 border-blue-600 pb-1 transition-all whitespace-nowrap text-sm px-3';
 
             // Hide all views
             if (dashboardView) dashboardView.style.display = 'none';
@@ -1906,7 +1906,7 @@
             document.getElementById('tabBtnMap').className = inactiveClass;
             // Reset tools button
             const toolsBtn = document.getElementById('tabBtnTools');
-            toolsBtn.className = toolsBtn.className.replace('border-white', 'border-transparent').replace(/(?<!\-)opacity-100/g, 'opacity-70');
+            toolsBtn.className = toolsBtn.className.replace('border-blue-600', 'border-transparent').replace('text-gray-900', 'text-gray-500');
 
             // Hide pegman by default; show only on map tab
             if (pegmanControl) pegmanControl.style.visibility = 'hidden';
@@ -1933,14 +1933,14 @@
             } else if (tab === 'cctv') {
                 if (cctvContainer) cctvContainer.style.display = 'block';
                 // Highlight tools button
-                toolsBtn.classList.remove('opacity-70', 'border-transparent');
-                toolsBtn.classList.add('opacity-100', 'border-white');
+                toolsBtn.classList.remove('text-gray-500', 'border-transparent');
+                toolsBtn.classList.add('text-gray-900', 'border-blue-600');
                 setTimeout(() => { if (typeof initCctvMap === 'function') initCctvMap(); }, 200);
 
             } else if (tab === 'bitcoin') {
                 if (bitcoinContainer) bitcoinContainer.style.display = 'block';
-                toolsBtn.classList.remove('opacity-70', 'border-transparent');
-                toolsBtn.classList.add('opacity-100', 'border-white');
+                toolsBtn.classList.remove('text-gray-500', 'border-transparent');
+                toolsBtn.classList.add('text-gray-900', 'border-blue-600');
                 setTimeout(() => { if (typeof initMinerHunter === 'function') initMinerHunter(); }, 200);
             }
         }
